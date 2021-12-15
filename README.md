@@ -15,7 +15,6 @@
 |  birthday_day           |  integer    |  validates, presence: true                   |
 
 - user has_many: items
-- user has_many: comments
 
 
 # items
@@ -32,7 +31,6 @@
 |  user_id                |  reference  |  validates, presence: true, foreign_key: true  |
 
 - item belongs_to: user
-- item has_many: comments
 - item has_one: chage
 
 
@@ -56,13 +54,3 @@
 |  security_code          |  integer    |  validates, presence: true                      |
 
 -belongs_to: payment
-
-
-# comments
-|  column                  |  type       |  option                                        |
-|  text                    |  string     |  validates, presence: true                     |
-|  user_id                 |  reference  |  validates, presence: true, foreign_key: true  |
-|  item_id                 |  reference  |  validates, presence: true, foreign_key: true  |
-
-- comment belongs_to: user
-- comment belongs_to: item
