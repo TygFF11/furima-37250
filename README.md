@@ -1,24 +1,68 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# users
+|  column                 |  type    |  option                                      |
+|  nickname               |  string  |  validates, presence: true                   |
+|  email                  |  string  |  validates, presence: true                   |
+|  password               |  string  |  validates, presence: true                   |
+|  password_confirmation  |  string  |  validates, presence: true                   |
+|  last_name              |  string  |  validates, presence: true                   |
+|  first_name             |  string  |  validates, presence: true                   |
+|  last_name_kana         |  string  |  validates, presence: true                   |
+|  first_name_kana        |  string  |  validates, presence: true                   |
+|  birthday_year          |  string  |  validates, presence: true                   |
+|  birthday_month         |  string  |  validates, presence: true                   |
+|  birthday_day           |  string  |  validates, presence: true                   |
 
-Things you may want to cover:
+- user has_many: items
+- user has_many: comments
 
-* Ruby version
 
-* System dependencies
+# items
+|  column            |  type       |  option                                        |
+|  item_image        |  string     |  validates, presence: true                     |
+|  item_name         |  string     |  validates, presence: true                     |
+|  item_describe     |  string     |  validates, presence: true                     |
+|  item_category     |  string     |  validates, presence: true                     |
+|  item_condition    |  string     |  validates, presence: true                     |
+|  delivery_charge   |  string     |  validates, presence: true                     |
+|  delivery_local    |  string     |  validates, presence: true                     |
+|  delivery_day      |  integer    |  validates, presence: true                     |
+|  item_price        |  integer    |  validates, presence: true                     |
+|  user_id           |  reference  |  validates, presence: true, foreign_key: true  |
 
-* Configuration
+- item belongs_to: user
+- item has_many: comments
+- item has_one: chage
 
-* Database creation
 
-* Database initialization
+# charges
+|  column             |  type       |  option                                        |
+|  post_number        |  integer    |  validates, presence: true                     |
+|  prefecture         |  string     |  validates, presence: true                     |
+|  municipalities     |  string     |  validates, presence: true                     |
+|  foreign land       |  string     |  validates, presence: true                     |
+|  building_name      |  string     |                                                |
+|  phone_number       |  integer    |  validates, presence: true                     |
 
-* How to run the test suite
+-belongs_to: item
+-has_one: pay_jp
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+# pay_jps
+|  column            |  type       |  option                                         |
+|  card_info         |  integer    |  validates, presence: true                      |
+|  card_number       |  integer    |  validates, presence: true                      |
+|  security_code     |  integer    |  validates, presence: true                      |
 
-* ...
+-belongs_to: payment
+
+
+# comments
+|  column             |  type       |  option                                        |
+|  text               |  string     |  validates, presence: true                     |
+|  user_id            |  reference  |  validates, presence: true, foreign_key: true  |
+|  item_id            |  reference  |  validates, presence: true, foreign_key: true  |
+
+- comment belongs_to: user
+- comment belongs_to: item
