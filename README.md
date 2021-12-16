@@ -12,7 +12,7 @@
 |  birthday               |  date        |  null: false                     |
 
 - user has_many: items
-- user has_one: charge
+- user has_one: order
 
 
 # items
@@ -26,10 +26,10 @@
 
 - item belongs_to: user
 - item has_one: charge
-- item has_one: sold_out
+- item has_one: addresse
 
 
-# charges
+# orders
 |  column                 |  type        |  option                          |
 |  item_price             |  integer     |  null: false                     |
 |  user                   |  references  |  null: false, foreign_key: true  |
@@ -39,14 +39,13 @@
 - charge belongs_to: item
 
 
-# sold_outs
-|  column                 |  type        |  option                          |
-|  buyer                  |  string      |  null: false                     |
-|  seller                 |  string      |  null: false                     |
-|  item_category          |  string      |  null: false                     |
-|  item_condition         |  string      |  null: false                     |
-|  delivery_charge        |  string      |  null: false                     |
-|  delivery_local         |  string      |  null: false                     |
-|  delivery_day           |  integer     |  null: false                     |
+# addresses
+|  postal_code            |  type        |  option                          |
+|  prefectural            |  string      |  null: false                     |
+|  urban_town_village     |  string      |  null: false                     |
+|  village_address        |  string      |  null: false                     |
+|  building_name          |  string      |  null: false                     |
+|  phone_numbe            |  string      |  null: false                     |
+|  order                  |  references  |  null: false, foreign_key: true  |
 
-- belongs_to: item
+- addresse belongs_to: item
