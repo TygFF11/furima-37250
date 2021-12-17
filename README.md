@@ -3,8 +3,8 @@
 # users
 |  column                 |  type        |  option                          |
 |  nickname               |  string      |  null: false                     |
-|  email                  |  string      |  null: false                     |
-|  encrypted_password     |  string      |  null: false, unique: true       |
+|  email                  |  string      |  null: false, unique: true       |
+|  encrypted_password     |  string      |  null: false                     |
 |  last_name              |  string      |  null: false                     |
 |  first_name             |  string      |  null: false                     |
 |  last_name_kana         |  string      |  null: false                     |
@@ -28,8 +28,7 @@
 |  user                   |  references  |  null: false, foreign_key: true  |
 
 - item belongs_to: user
-- item has_one: addresse
-
+- item has_one: order
 
 
 # orders
@@ -39,7 +38,7 @@
 
 - order belongs_to: user
 - order belongs_to: item
-- order has_one: addresse
+- order has_one: address
 
 
 # addresses
@@ -51,4 +50,4 @@
 |  phone_number           |  string      |  null: false                     |
 |  order                  |  references  |  null: false, foreign_key: true  |
 
-- addresses bolongs_to: item
+- address bolongs_to: order
