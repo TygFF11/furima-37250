@@ -12,7 +12,7 @@
 |  birthday               |  date        |  null: false                     |
 
 - user has_many: items
-- user has_one: order
+- user has_many: orders
 
 
 # items
@@ -23,12 +23,12 @@
 |  item_category_id       |  integer     |  null: false                     |
 |  item_show_id           |  integer     |  null: false                     |
 |  item_delivary_id       |  integer     |  null: false                     |
-|  item_local_id          |  integer     |  null: false                     |
+|  perfecture_id          |  integer     |  null: false                     |
 |  item_day_id            |  integer     |  null: false                     |
 |  user                   |  references  |  null: false, foreign_key: true  |
 
 - item belongs_to: user
-- item has_many: addresses
+- item has_one: addresse
 
 
 
@@ -39,15 +39,16 @@
 
 - order belongs_to: user
 - order belongs_to: item
+- order has_one: addresse
 
 
 # addresses
 |  postal_code            |  type        |  option                          |
-|  prefectural_id         |  integer     |  null: false                     |
+|  prefecture_id          |  integer     |  null: false                     |
 |  urban_town_village     |  string      |  null: false                     |
 |  village_address        |  string      |  null: false                     |
 |  building_name          |  string      |                                  |
-|  phone_numbe            |  string      |  null: false                     |
+|  phone_number           |  string      |  null: false                     |
 |  order                  |  references  |  null: false, foreign_key: true  |
 
-
+- addresses bolongs_to: item
