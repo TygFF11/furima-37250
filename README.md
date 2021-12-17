@@ -42,7 +42,8 @@
 
 
 # addresses
-|  postal_code            |  type        |  option                          |
+|  column                 |  type        |  option                          |
+|  postal_code            |              |                                  |
 |  prefecture_id          |  integer     |  null: false                     |
 |  urban_town_village     |  string      |  null: false                     |
 |  village_address        |  string      |  null: false                     |
