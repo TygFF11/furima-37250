@@ -20,32 +20,34 @@
 |  item_name              |  string      |  null: false                     |
 |  item_describe          |  text        |  null: false                     |
 |  item_price             |  integer     |  null: false                     |
-|  item_fee               |  integer     |  null: false                     |
-|  item_profit            |  integer     |  null: false                     |
+|  item_category_id       |  integer     |  null: false                     |
+|  item_show_id           |  integer     |  null: false                     |
+|  item_delivary_id       |  integer     |  null: false                     |
+|  item_local_id          |  integer     |  null: false                     |
+|  item_day_id            |  integer     |  null: false                     |
 |  user                   |  references  |  null: false, foreign_key: true  |
 
 - item belongs_to: user
-- item has_one: charge
-- item has_one: addresse
+- item has_many: addresses
+
 
 
 # orders
 |  column                 |  type        |  option                          |
-|  item_price             |  integer     |  null: false                     |
 |  user                   |  references  |  null: false, foreign_key: true  |
 |  item                   |  references  |  null: false, foreign_key: true  |
 
-- charge belongs_to: user
-- charge belongs_to: item
+- order belongs_to: user
+- order belongs_to: item
 
 
 # addresses
 |  postal_code            |  type        |  option                          |
-|  prefectural            |  string      |  null: false                     |
+|  prefectural_id         |  integer     |  null: false                     |
 |  urban_town_village     |  string      |  null: false                     |
 |  village_address        |  string      |  null: false                     |
-|  building_name          |  string      |  null: false                     |
+|  building_name          |  string      |                                  |
 |  phone_numbe            |  string      |  null: false                     |
 |  order                  |  references  |  null: false, foreign_key: true  |
 
-- addresse belongs_to: item
+
