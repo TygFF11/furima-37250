@@ -1,4 +1,4 @@
-# class Item < ApplicationRecord
+class Item < ApplicationRecord
 #   validates :item_name,         presence: true
 #   validates :item_describe,     presence: true
 #   validates :item_price,        presence: true
@@ -11,4 +11,4 @@
 
 #   belongs_to :user
 #   has_one :order
-# end
+end
