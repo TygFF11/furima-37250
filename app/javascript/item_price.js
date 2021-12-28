@@ -7,7 +7,7 @@ function consumer (){
   priceInput.addEventListener("input", function(){
     const inputValue = priceInput.value
 
-    const commissionCalculation = inputValue / 10
+    const commissionCalculation = Math.floor( inputValue / 10 )
     const profitCalculation = inputValue - commissionCalculation
     
     addTaxDom.innerHTML = commissionCalculation
