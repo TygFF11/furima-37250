@@ -23,10 +23,26 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @item = Item.find(params[:id])
+    if @item.user == current_user
+      render templete: "item/edit"
+    else
+      redirect_to root_path
+    end
   end
 
   def update
+    @item = Item.find(params[:id])
+    if @item.update(item_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
+
+  # def destroy
+  #   @item = Item.find(params[:id])
+  # end
 
   private
 
