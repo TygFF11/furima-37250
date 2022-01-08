@@ -23,7 +23,7 @@
 |  item_category_id       |  integer     |  null: false                     |
 |  item_show_id           |  integer     |  null: false                     |
 |  item_delivary_id       |  integer     |  null: false                     |
-|  perfecture_id          |  integer     |  null: false                     |
+|  prefecture_id          |  integer     |  null: false                     |
 |  item_day_id            |  integer     |  null: false                     |
 |  user                   |  references  |  null: false, foreign_key: true  |
 
@@ -43,7 +43,7 @@
 
 # addresses
 |  column                 |  type        |  option                          |
-|  postal_code            |              |                                  |
+|  postal_code            |  string      |  null: false                     |
 |  prefecture_id          |  integer     |  null: false                     |
 |  urban_town_village     |  string      |  null: false                     |
 |  village_address        |  string      |  null: false                     |

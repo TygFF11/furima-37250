@@ -59,14 +59,14 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Item delivary can't be blank")
       end
       it '地域idが存在しなければ商品出品できない。' do
-        @item.perfecture_id = ''
+        @item.prefecture_id = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("Perfecture can't be blank")
+        expect(@item.errors.full_messages).to include("Prefecture can't be blank")
       end
       it '地域idが1の時、商品出品できない。' do
-        @item.perfecture_id = 1
+        @item.prefecture_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Perfecture can't be blank")
+        expect(@item.errors.full_messages).to include("Prefecture can't be blank")
       end
       it '日数idが存在しなければ商品出品できない。' do
         @item.item_day_id = ''
