@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user! 
   before_action :only_not_user, only: [:index]
-  before_action :sold_out
+  before_action :sold_out, only: [:index]
 
   def index
     @item = Item.find(params[:item_id])
@@ -10,7 +10,6 @@ class OrdersController < ApplicationController
 
   def create
     @item = Item.find(params[:item_id])
-    binding.pry
     @order_address = OrderAddress.new(order_params)
     if @order_address.valid?
       pay_item
