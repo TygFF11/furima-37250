@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user! 
   before_action :only_not_user, only: [:index]
+  before_action :sold_out
 
   def index
     @item = Item.find(params[:item_id])
@@ -9,6 +10,7 @@ class OrdersController < ApplicationController
 
   def create
     @item = Item.find(params[:item_id])
+    binding.pry
     @order_address = OrderAddress.new(order_params)
     if @order_address.valid?
       pay_item
@@ -37,6 +39,12 @@ class OrdersController < ApplicationController
   def only_not_user
     @item = Item.find(params[:item_id])
     if current_user.id == @item.user_id
+      redirect_to root_path
+    end
+  end
+
+  def sold_out
+    if @item.order.present?
       redirect_to root_path
     end
   end
