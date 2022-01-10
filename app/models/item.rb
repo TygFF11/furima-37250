@@ -7,13 +7,13 @@ class Item < ApplicationRecord
   validates :item_category_id,  numericality: { other_than: 1, message: "can't be blank" }
   validates :item_show_id,      numericality: { other_than: 1, message: "can't be blank" }
   validates :item_delivary_id,  numericality: { other_than: 1, message: "can't be blank" }
-  validates :perfecture_id,     numericality: { other_than: 1, message: "can't be blank" }
+  validates :prefecture_id,     numericality: { other_than: 1, message: "can't be blank" }
   validates :item_day_id,       numericality: { other_than: 1, message: "can't be blank" }
 
   validates :image,             presence: true
 
   belongs_to :user
-  # has_one :order
+  has_one :order
   has_one_attached :image
 
   extend ActiveHash::Associations::ActiveRecordExtensions
@@ -21,5 +21,5 @@ class Item < ApplicationRecord
   belongs_to_active_hash :item_day
   belongs_to_active_hash :item_delivary
   belongs_to_active_hash :item_show
-  belongs_to_active_hash :perfecture
+  belongs_to_active_hash :prefecture
 end
