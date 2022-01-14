@@ -27,7 +27,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user.build_info(@info.attributes)
     @user.save
     session["devise.regist_data"]["user"].clear
-    # binding.pry
     sign_in(:user, @user)
   end
 
