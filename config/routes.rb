@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {
+    omniauth_callbacks: 'users/omniauth_callbacks',
     registrations: 'users/registrations'
   }
   devise_scope :user do
@@ -7,6 +8,7 @@ Rails.application.routes.draw do
     post 'infos', to: 'users/registrations#create_info'
   end
   root to: "items#index"
+  resources :users, only: :index
   resources :items do
     resources :orders
   end
