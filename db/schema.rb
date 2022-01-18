@@ -46,18 +46,6 @@ ActiveRecord::Schema.define(version: 2022_01_14_052430) do
     t.index ["order_id"], name: "index_addresses_on_order_id"
   end
 
-  create_table "infos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "last_name", null: false
-    t.string "last_name_kana", null: false
-    t.string "first_name", null: false
-    t.string "first_name_kana", null: false
-    t.date "birthday", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_infos_on_user_id"
-  end
-
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "item_name", null: false
     t.text "item_describe", null: false
@@ -95,6 +83,11 @@ ActiveRecord::Schema.define(version: 2022_01_14_052430) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "nickname", null: false
+    t.string "last_name", null: false
+    t.string "last_name_kana", null: false
+    t.string "first_name", null: false
+    t.string "first_name_kana", null: false
+    t.date "birthday", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -106,7 +99,6 @@ ActiveRecord::Schema.define(version: 2022_01_14_052430) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "addresses", "orders"
-  add_foreign_key "infos", "users"
   add_foreign_key "items", "users"
   add_foreign_key "orders", "items"
   add_foreign_key "orders", "users"
