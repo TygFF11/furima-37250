@@ -5,7 +5,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
   
   def create
-    # binding.pry
     if params[:sns_auth] == "true"
       pass = Devise.friendly_token.first(6)
       params[:user][:password] = pass
