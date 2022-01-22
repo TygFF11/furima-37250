@@ -11,6 +11,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   private
   
   def authorization
+    binding.pry
     sns_info = User.from_omniauth(request.env["omniauth.auth"])
     @user = sns_info[:user]
 

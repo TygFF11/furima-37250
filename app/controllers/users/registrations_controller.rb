@@ -10,12 +10,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
       params[:user][:password] = pass
       params[:user][:password_confirmation] = pass
     end
+    super
   end
 
   private
 
-  def info_params
-    params.require(:info).permit(:last_name, :last_name_kana, :first_name, :first_name_kana, :birthday)
-  end
 
 end
