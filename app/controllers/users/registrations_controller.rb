@@ -10,7 +10,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
       params[:user][:password] = pass
       params[:user][:password_confirmation] = pass
     end
-    super
   end
 
   private
